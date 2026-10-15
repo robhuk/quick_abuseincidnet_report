@@ -46,8 +46,8 @@ main{max-width:760px;margin:0 auto;padding:14px 12px 110px}.warning{background:#
       <h2><span class="num">2</span> Service and duty</h2>
       <div class="grid">
         <div class="field"><label for="headcode">Headcode</label><input id="headcode" name="headcode" maxlength="4" placeholder="e.g. 1V50" autocapitalize="characters"></div>
-        <div class="field"><label for="unit">Unit number <span class="opt">(optional)</span></label><input id="unit" name="unit" inputmode="numeric" maxlength="6" placeholder="6 digits"></div>
-        <div class="field"><label for="serviceTime">Booked train time</label><input id="serviceTime" name="serviceTime" type="time"></div>
+        <div class="field"><label for="unit">Unit number <span class="opt">(optional)</span></label><input id="unit" name="unit" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" placeholder="6 digits"></div>
+        <div class="field"><label for="serviceTime">Train Origin time</label><input id="serviceTime" name="serviceTime" type="text" inputmode="text" placeholder="e.g. 0603 Birmingham, to Bournemouth"></div>
         <div class="field"><label for="from">From</label><input id="from" name="from" placeholder="Origin"></div>
         <div class="field"><label for="to">To</label><input id="to" name="to" placeholder="Destination"></div>
         <div class="field"><label for="turn">Turn / duty number</label><input id="turn" name="turn" placeholder="Optional"></div>
@@ -57,7 +57,7 @@ main{max-width:760px;margin:0 auto;padding:14px 12px 110px}.warning{background:#
     <section class="card">
       <h2><span class="num">3</span> What happened?</h2>
       <div class="grid">
-        <div class="field full"><label for="details">Brief factual account <span class="required">*</span></label><textarea id="details" name="details" placeholder="Record what happened, what was said or done, and any action taken. Use exact words where useful." required></textarea><div class="hint">Keep it factual. Avoid speculation; include relevant witnesses if known.</div></div>
+        <div class="field full"><label for="details">Account of event <span class="required">*</span></label><textarea id="details" name="details" placeholder="Record what happened, what was said or done, and any action taken. Use exact words where useful." required></textarea><div class="hint">Keep it factual. Avoid speculation; include relevant witnesses if known.</div></div>
         <div class="field"><label for="witnesses">Witnesses / colleague present</label><textarea id="witnesses" name="witnesses" placeholder="Names or brief description"></textarea></div>
         <div class="field"><label for="description">Person involved <span class="opt">(if known)</span></label><textarea id="description" name="description" placeholder="Description / details known"></textarea></div>
       </div>
@@ -77,7 +77,7 @@ main{max-width:760px;margin:0 auto;padding:14px 12px 110px}.warning{background:#
         <div class="field"><label for="controlInformed">Was Control informed?</label><select id="controlInformed" name="controlInformed"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not known</option></select></div>
         <div class="field"><label for="controlTime">Time Control contacted</label><input id="controlTime" name="controlTime" type="time"></div>
         <div class="field"><label for="policeDate">Police contact / log date</label><input id="policeDate" name="policeDate" type="date"></div>
-        <div class="field"><label for="policeLog">Police log / incident number</label><input id="policeLog" name="policeLog" inputmode="numeric" pattern="[0-9]*" placeholder="Numerical reference, if issued"></div>
+        <div class="field"><label for="policeLog">Log number</label><input id="policeLog" name="policeLog" inputmode="numeric" pattern="[0-9]*" placeholder="Numerical reference, if issued"></div>
         <div class="field"><label for="recording">CCTV / body-worn video?</label><select id="recording" name="recording"><option value="">Select…</option><option>Yes — CCTV</option><option>Yes — body-worn video</option><option>Yes — both</option><option>No</option><option>Unknown</option></select></div>
         <div class="field"><label for="personOutcome">What happened to the person?</label><select id="personOutcome" name="personOutcome"><option value="">Select…</option><option>Left the train / location</option><option>Removed from train / location</option><option>Detained pending police</option><option>Police attended</option><option>Remained at location</option><option>Unknown / other</option></select></div>
         <div class="field full"><label for="actions">Other action taken / outcome</label><textarea id="actions" name="actions" placeholder="e.g. person left train, police attended, service continued"></textarea></div>
@@ -86,7 +86,6 @@ main{max-width:760px;margin:0 auto;padding:14px 12px 110px}.warning{background:#
     <section class="card">
       <h2><span class="num">6</span> Report status</h2>
       <div class="grid">
-        <div class="field"><label for="reportStatus">Report status</label><select id="reportStatus" name="reportStatus"><option>Draft</option><option>Ready for submission</option></select></div>
       </div>
       <div class="hint">“Ready for submission” is a local status only. This app does not submit the report.</div>
     </section>
@@ -125,7 +124,7 @@ document.getElementById('loadBtn').onclick=()=>{try{let d=localStorage.getItem('
 document.getElementById('clearBtn').onclick=()=>{if(confirm('Clear all fields? This will not delete the saved draft.')){form.reset();document.getElementById('incidentDate').value=localDate;document.getElementById('injuries').dispatchEvent(new Event('change'));say('Form cleared.')}};
 document.getElementById('printBtn').onclick=()=>{if(!form.reportValidity())return;window.print()};
 function reportText(){const d=values();const labels={
-incidentDate:'Date of incident',incidentTime:'Approx. time',incidentType:'Incident type',otherIncidentType:'Other incident type specified',whereType:'Location type',location:'Specific location',headcode:'Headcode',unit:'Unit number',serviceTime:'Booked train time',from:'From',to:'To',turn:'Turn / duty number',crewName:'Reporting crew member',details:'Account of incident',witnesses:'Witnesses / colleague',description:'Person involved',injuries:'Injuries',injuryDetails:'Injury details',firstAid:'First aid / medical help',support:'Welfare / follow-up',controlInformed:'Was Control informed?',controlTime:'Time Control contacted',policeDate:'Police contact / log date',policeLog:'Police log / incident number',recording:'CCTV / body-worn video',personOutcome:'Outcome for person involved',actions:'Other action / outcome',reportStatus:'Report status'};
+incidentDate:'Date of incident',incidentTime:'Approx. time',incidentType:'Incident type',otherIncidentType:'Other incident type specified',whereType:'Location type',location:'Specific location',headcode:'Headcode',unit:'Unit number',serviceTime:'Train Origin time',from:'From',to:'To',turn:'Turn / duty number',crewName:'Reporting crew member',details:'Account of event',witnesses:'Witnesses / colleague',description:'Person involved',injuries:'Injuries',injuryDetails:'Injury details',firstAid:'First aid / medical help',support:'Welfare / follow-up',controlInformed:'Was Control informed?',controlTime:'Time Control contacted',policeDate:'Police contact / log date',policeLog:'Log number',recording:'CCTV / body-worn video',personOutcome:'Outcome for person involved',actions:'Other action / outcome'};
 return 'STAFF ABUSE & ASSAULT REPORT\\nMinor incident record\\n\\n'+Object.entries(labels).filter(([k])=>d[k]).map(([k,v])=>v+': '+d[k]).join('\\n')+'\\n\\nNote: For incidents beyond minor, follow usual procedures and contact Control immediately.'}
 document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(reportText());say('Report text copied.')}catch(e){const ta=document.createElement('textarea');ta.value=reportText();document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();say(ok?'Report text copied.':'Copy not available; use Print / Save PDF.')}};
 if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
