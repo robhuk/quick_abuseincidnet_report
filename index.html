@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#A50034">
+<meta name="description" content="Quick minor staff abuse and assault incident report for train crew.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Staff Incident Report</title>
+<style>
+:root{--xc:#A50034;--gold:#F2C300;--ink:#202124;--muted:#62666a;--line:#d9dce1;--bg:#f3f4f6;--white:#fff;--danger:#9a3412}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:var(--xc);color:#fff;padding:calc(16px + env(safe-area-inset-top)) 16px 18px;box-shadow:0 2px 8px #0002}
+.brand{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.9}.headrow{display:flex;align-items:center;gap:12px;margin-top:5px}.mark{width:42px;height:42px;border:2px solid #fff;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:1rem}.headrow h1{font-size:1.3rem;line-height:1.15;margin:0}.sub{font-size:.85rem;opacity:.9;margin-top:5px}
+main{max-width:760px;margin:0 auto;padding:14px 12px 110px}.warning{background:#fff7ed;border:1px solid #fdba74;border-left:5px solid #c2410c;border-radius:12px;padding:13px 14px;margin-bottom:14px}.warning strong{display:block;color:#9a3412;margin-bottom:4px}.warning p{margin:0;font-size:.9rem}
+.card{background:#fff;border:1px solid #e1e3e6;border-radius:14px;padding:16px;margin-bottom:13px;box-shadow:0 2px 5px #00000008}.card h2{font-size:1rem;margin:0 0 14px;display:flex;align-items:center;gap:8px}.num{display:inline-grid;place-items:center;background:#f9e6ed;color:var(--xc);width:26px;height:26px;border-radius:8px;font-size:.82rem;font-weight:800}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}label{display:block;font-weight:650;font-size:.86rem;margin:0 0 6px}label .opt{color:var(--muted);font-weight:400}input,select,textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid #cbd0d7;border-radius:9px;padding:11px 12px;min-height:46px}textarea{min-height:100px;resize:vertical}input:focus,select:focus,textarea:focus{outline:3px solid #a5003422;border-color:var(--xc)}.hint{font-size:.76rem;color:var(--muted);margin-top:4px}.hidden{display:none!important}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px}.btn{border:0;border-radius:11px;min-height:48px;padding:12px 14px;font:700 1rem system-ui;cursor:pointer}.primary{background:var(--gold);color:#201900}.secondary{background:#fff;border:1px solid #cbd0d7;color:var(--ink)}.dark{background:var(--xc);color:#fff}.wide{grid-column:1/-1}.status{font-size:.82rem;color:#17603a;min-height:1.2em;margin:8px 2px}.footer{font-size:.75rem;color:var(--muted);text-align:center;padding:12px 10px 25px}.required{color:var(--xc)}.subtle{color:var(--muted);font-size:.82rem}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.actions{grid-template-columns:1fr 1fr}.card{padding:14px}.headrow h1{font-size:1.15rem}}
+@media print{body{background:#fff;font-size:11pt}header{background:#fff!important;color:#111!important;box-shadow:none;border-bottom:2px solid #A50034;padding:10px 0}.mark{border-color:#111}.sub,.brand{color:#333;opacity:1}main{padding:0;max-width:none}.warning{break-inside:avoid}.card{box-shadow:none;border:1px solid #bbb;padding:10px;margin-bottom:8px;break-inside:avoid}.actions,.status,.footer,.no-print{display:none!important}input,select,textarea{border:0;padding:2px;min-height:0;appearance:none;background:transparent}textarea{min-height:50px}label{font-size:10pt}h2{margin-bottom:6px!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">Train Crew • Quick Record</div>
+  <div class="headrow"><div class="mark">XC</div><div><h1>Staff Abuse &amp; Assault Report</h1><div class="sub">Minor incident record • Complete as soon as practicable</div></div></div>
+</header>
+<main>
+  <section class="warning" role="note">
+    <strong>⚠ Minor incidents only</strong>
+    <p>Use this form only for minor staff abuse or assault incidents. If an incident is more serious than minor, follow the usual reporting procedures and contact <b>Control</b> immediately. This form does not replace emergency assistance or formal reporting.</p>
+  </section>
+  <form id="reportForm">
+    <section class="card">
+      <h2><span class="num">1</span> Incident details</h2>
+      <div class="grid">
+        <div class="field"><label for="incidentDate">Date of incident <span class="required">*</span></label><input id="incidentDate" name="incidentDate" type="date" required></div>
+        <div class="field"><label for="incidentTime">Approx. time <span class="required">*</span></label><input id="incidentTime" name="incidentTime" type="time" required></div>
+        <div class="field"><label for="incidentType">Incident type <span class="required">*</span></label><select id="incidentType" name="incidentType" required><option value="">Select type…</option><option>Verbal abuse</option><option>Threatening behaviour</option><option>Spitting</option><option>Minor physical assault</option><option>Harassment</option><option>Sexual harassment</option><option>Other minor incident</option></select></div>
+        <div class="field full hidden" id="otherIncidentTypeWrap"><label for="otherIncidentType">Please state the incident type <span class="required">*</span></label><input id="otherIncidentType" name="otherIncidentType" placeholder="Describe the incident type"></div>
+        <div class="field"><label for="whereType">Where did it happen? <span class="required">*</span></label><select id="whereType" name="whereType" required><option value="">Select location type…</option><option>On train</option><option>At a station</option><option>On platform</option><option>Concourse / station building</option><option>Other location</option></select></div>
+        <div class="field full"><label for="location">Specific location / station <span class="required">*</span></label><input id="location" name="location" placeholder="e.g. Coach C, platform 2, Newcastle" required></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2><span class="num">2</span> Service and duty</h2>
+      <div class="grid">
+        <div class="field"><label for="headcode">Headcode</label><input id="headcode" name="headcode" maxlength="4" placeholder="e.g. 1V50" autocapitalize="characters"></div>
+        <div class="field"><label for="unit">Unit number <span class="opt">(optional)</span></label><input id="unit" name="unit" inputmode="numeric" maxlength="6" placeholder="6 digits"></div>
+        <div class="field"><label for="serviceTime">Booked train time</label><input id="serviceTime" name="serviceTime" type="time"></div>
+        <div class="field"><label for="from">From</label><input id="from" name="from" placeholder="Origin"></div>
+        <div class="field"><label for="to">To</label><input id="to" name="to" placeholder="Destination"></div>
+        <div class="field"><label for="turn">Turn / duty number</label><input id="turn" name="turn" placeholder="Optional"></div>
+        <div class="field full"><label for="crewName">Reporting crew member <span class="required">*</span></label><input id="crewName" name="crewName" autocomplete="name" required></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2><span class="num">3</span> What happened?</h2>
+      <div class="grid">
+        <div class="field full"><label for="details">Brief factual account <span class="required">*</span></label><textarea id="details" name="details" placeholder="Record what happened, what was said or done, and any action taken. Use exact words where useful." required></textarea><div class="hint">Keep it factual. Avoid speculation; include relevant witnesses if known.</div></div>
+        <div class="field"><label for="witnesses">Witnesses / colleague present</label><textarea id="witnesses" name="witnesses" placeholder="Names or brief description"></textarea></div>
+        <div class="field"><label for="description">Person involved <span class="opt">(if known)</span></label><textarea id="description" name="description" placeholder="Description / details known"></textarea></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2><span class="num">4</span> Injury and support</h2>
+      <div class="grid">
+        <div class="field"><label for="injuries">Were there any injuries? <span class="required">*</span></label><select id="injuries" name="injuries" required><option value="">Select…</option><option value="No">No</option><option value="Yes">Yes</option><option value="Unclear">Unclear / not known</option></select></div>
+        <div class="field"><label for="firstAid">First aid / medical help</label><select id="firstAid" name="firstAid"><option value="">Select…</option><option>Not required</option><option>Offered, declined</option><option>Provided</option><option>Requested / arranged</option><option>Not known</option></select></div>
+        <div class="field full hidden" id="injuryDetailsWrap"><label for="injuryDetails">Injury details <span class="required">*</span></label><textarea id="injuryDetails" name="injuryDetails" placeholder="Describe injury, affected area and any action taken"></textarea></div>
+        <div class="field full"><label for="support">Welfare / follow-up required?</label><textarea id="support" name="support" placeholder="e.g. manager informed, welfare support requested, none"></textarea></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2><span class="num">5</span> Control and police reference</h2>
+      <div class="grid">
+        <div class="field"><label for="controlInformed">Was Control informed?</label><select id="controlInformed" name="controlInformed"><option value="">Select…</option><option>Yes</option><option>No</option><option>Not known</option></select></div>
+        <div class="field"><label for="controlTime">Time Control contacted</label><input id="controlTime" name="controlTime" type="time"></div>
+        <div class="field"><label for="policeDate">Police contact / log date</label><input id="policeDate" name="policeDate" type="date"></div>
+        <div class="field"><label for="policeLog">Police log / incident number</label><input id="policeLog" name="policeLog" inputmode="numeric" pattern="[0-9]*" placeholder="Numerical reference, if issued"></div>
+        <div class="field"><label for="recording">CCTV / body-worn video?</label><select id="recording" name="recording"><option value="">Select…</option><option>Yes — CCTV</option><option>Yes — body-worn video</option><option>Yes — both</option><option>No</option><option>Unknown</option></select></div>
+        <div class="field"><label for="personOutcome">What happened to the person?</label><select id="personOutcome" name="personOutcome"><option value="">Select…</option><option>Left the train / location</option><option>Removed from train / location</option><option>Detained pending police</option><option>Police attended</option><option>Remained at location</option><option>Unknown / other</option></select></div>
+        <div class="field full"><label for="actions">Other action taken / outcome</label><textarea id="actions" name="actions" placeholder="e.g. person left train, police attended, service continued"></textarea></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2><span class="num">6</span> Report status</h2>
+      <div class="grid">
+        <div class="field"><label for="reportStatus">Report status</label><select id="reportStatus" name="reportStatus"><option>Draft</option><option>Ready for submission</option></select></div>
+      </div>
+      <div class="hint">“Ready for submission” is a local status only. This app does not submit the report.</div>
+    </section>
+    <div class="actions no-print">
+      <button class="btn primary" type="button" id="saveBtn">Save draft</button>
+      <button class="btn secondary" type="button" id="loadBtn">Load draft</button>
+      <button class="btn dark" type="button" id="printBtn">Print / Save PDF</button>
+      <button class="btn secondary" type="button" id="copyBtn">Copy report text</button>
+      <button class="btn secondary wide" type="button" id="clearBtn">Clear form</button>
+    </div>
+    <div class="status no-print" id="status" aria-live="polite"></div>
+  </form>
+  <div class="footer">Drafts are stored on this device only. This prototype does not submit or send reports to Control, police, or management. Follow your organisation's approved reporting and data-handling procedures.</div>
+</main>
+<script>
+const form=document.getElementById('reportForm'), statusEl=document.getElementById('status');
+const fields=[...form.querySelectorAll('input,select,textarea')];
+const today=new Date(); const localDate=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+document.getElementById('incidentDate').value=localDate;
+document.getElementById('incidentType').addEventListener('change',e=>{
+ const show=e.target.value==='Other minor incident', wrap=document.getElementById('otherIncidentTypeWrap'), input=document.getElementById('otherIncidentType');
+ wrap.classList.toggle('hidden',!show); input.required=show; if(!show)input.value='';
+});
+document.getElementById('injuries').addEventListener('change',e=>{
+ const show=e.target.value==='Yes', wrap=document.getElementById('injuryDetailsWrap'), input=document.getElementById('injuryDetails');
+ wrap.classList.toggle('hidden',!show); input.required=show; if(!show)input.value='';
+});
+document.getElementById('headcode').addEventListener('input',e=>{e.target.value=e.target.value.toUpperCase().replace(/[^0-9A-Z]/g,'').slice(0,4)});
+document.getElementById('unit').addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,'').slice(0,6));
+document.getElementById('policeLog').addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,''));
+function values(){return Object.fromEntries(fields.map(el=>[el.name,el.value]))}
+function fill(data){fields.forEach(el=>{if(data[el.name]!==undefined)el.value=data[el.name]});document.getElementById('injuries').dispatchEvent(new Event('change'));document.getElementById('incidentType').dispatchEvent(new Event('change'))}
+function say(t){statusEl.textContent=t}
+document.getElementById('saveBtn').onclick=()=>{try{localStorage.setItem('staffIncidentDraft',JSON.stringify(values()));say('Draft saved on this device.')}catch(e){say('Unable to save draft in this browser.')}};
+document.getElementById('loadBtn').onclick=()=>{try{let d=localStorage.getItem('staffIncidentDraft');if(!d){say('No saved draft found on this device.');return}fill(JSON.parse(d));say('Draft loaded.')}catch(e){say('Unable to load the saved draft.')}};
+document.getElementById('clearBtn').onclick=()=>{if(confirm('Clear all fields? This will not delete the saved draft.')){form.reset();document.getElementById('incidentDate').value=localDate;document.getElementById('injuries').dispatchEvent(new Event('change'));say('Form cleared.')}};
+document.getElementById('printBtn').onclick=()=>{if(!form.reportValidity())return;window.print()};
+function reportText(){const d=values();const labels={
+incidentDate:'Date of incident',incidentTime:'Approx. time',incidentType:'Incident type',otherIncidentType:'Other incident type specified',whereType:'Location type',location:'Specific location',headcode:'Headcode',unit:'Unit number',serviceTime:'Booked train time',from:'From',to:'To',turn:'Turn / duty number',crewName:'Reporting crew member',details:'Account of incident',witnesses:'Witnesses / colleague',description:'Person involved',injuries:'Injuries',injuryDetails:'Injury details',firstAid:'First aid / medical help',support:'Welfare / follow-up',controlInformed:'Was Control informed?',controlTime:'Time Control contacted',policeDate:'Police contact / log date',policeLog:'Police log / incident number',recording:'CCTV / body-worn video',personOutcome:'Outcome for person involved',actions:'Other action / outcome',reportStatus:'Report status'};
+return 'STAFF ABUSE & ASSAULT REPORT\\nMinor incident record\\n\\n'+Object.entries(labels).filter(([k])=>d[k]).map(([k,v])=>v+': '+d[k]).join('\\n')+'\\n\\nNote: For incidents beyond minor, follow usual procedures and contact Control immediately.'}
+document.getElementById('copyBtn').onclick=async()=>{try{await navigator.clipboard.writeText(reportText());say('Report text copied.')}catch(e){const ta=document.createElement('textarea');ta.value=reportText();document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();say(ok?'Report text copied.':'Copy not available; use Print / Save PDF.')}};
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body></html>

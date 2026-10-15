@@ -1,0 +1,11 @@
+{
+  "name": "Staff Abuse & Assault Report",
+  "short_name": "Staff Incident",
+  "description": "Quick minor staff abuse and assault report for train crew.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f4f6",
+  "theme_color": "#A50034",
+  "icons": []
+}
